@@ -1,0 +1,54 @@
+server:
+  port: 8123
+  servlet:
+    context-path: /api
+    session:
+      cookie:
+        max-age: 2592000
+spring:
+  application:
+    name: YourProjectName
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://YourIp/flower_picture
+    username: YourUserName
+    password: YourPassWord
+  #redis配置
+  redis:
+    database: 0
+    host: YourIp
+    port: 6379
+    timeout: 5000
+    password: YourPassWord
+  #Session配置
+  session:
+    store-type: redis
+    # session过期时间
+    timeout: 2592000
+  #文件上传体积修改
+  servlet:
+    multipart:
+      max-file-size: 10MB
+mybatis-plus:
+  configuration:
+    #生产阶段关闭日志
+    log-impl: ''
+  global-config:
+    db-config:
+      logic-delete-field: isDelete
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+#接口文档配置
+knife4j:
+  basic:
+    enable: true
+    username: YourUserName
+    password: YourPassWord
+#腾讯云存储桶配置
+cos:
+  client:
+    host: YourHost
+    secretId: YourSId
+    secretKey: YourSk
+    region: YourBucketRegion
+    bucket: YourBucket
